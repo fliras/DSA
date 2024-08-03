@@ -2,30 +2,37 @@
 
 namespace DSA
 {
-    internal static class ArrayBasedQueueExample
+    internal static class LinkedListBasedQueue
     {
-        static void Mainha(string[] args)
+        static void Main(string[] args)
         {
-            CustomArrayBasedQueue<int> queue = new CustomArrayBasedQueue<int>(5);
+            LinkedListBasedQueue<int> queue = new LinkedListBasedQueue<int>();
             Console.WriteLine($"is empty: {queue.IsEmpty()}");
 
             queue.Enqueue(1);
             queue.Enqueue(2);
             queue.Enqueue(3);
             queue.Enqueue(4);
-            Console.WriteLine($"is empty: {queue.IsEmpty()}");
-            Console.WriteLine($"is full: {queue.IsFull()}");
-
             queue.Enqueue(5);
-            Console.WriteLine($"is full: {queue.IsFull()}");
             queue.Enqueue(6);
-
+            Console.WriteLine($"is empty: {queue.IsEmpty()}");
             Console.WriteLine();
 
+            Console.WriteLine(queue.Peek());
             queue.DeQueue();
+
+            Console.WriteLine(queue.Peek());
             queue.DeQueue();
+
+            Console.WriteLine(queue.Peek());
             queue.DeQueue();
+
+            Console.WriteLine(queue.Peek());
             queue.DeQueue();
+
+            Console.WriteLine(queue.Peek());
+            queue.DeQueue();
+
             queue.DeQueue();
             Console.WriteLine($"is empty: {queue.IsEmpty()}");
             Console.ReadKey();
