@@ -4,7 +4,7 @@ namespace DSA
 {
     internal static class LinkedListBasedQueue
     {
-        static void Main(string[] args)
+        static void Mainha(string[] args)
         {
             LinkedListBasedQueue<int> queue = new LinkedListBasedQueue<int>();
             Console.WriteLine($"is empty: {queue.IsEmpty()}");
