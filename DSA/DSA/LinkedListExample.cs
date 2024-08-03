@@ -6,26 +6,39 @@ namespace DSA
     {
         static void Main(string[] args)
         {
-            MyLinkedList list = new MyLinkedList();
-            list.PutAtEnd(1);
-            list.PutAtEnd(2);
-            list.PutAtEnd(3);
-            list.PutAtEnd(4);
+            CustomLinkedList<string> list = new CustomLinkedList<string>();
+            list.InsertAtBeginning("def");
+            list.InsertAtBeginning("abc");
             list.Print();
+            Console.WriteLine();
 
-            list.PutAtBeginning(0);
-            list.PutAtBeginning(-1);
-            list.PutAtBeginning(-2);
-            Console.WriteLine("linked list after inserting 0, -1, and -2:");
+            list.InsertAtEnd("ghi");
+            list.InsertAtEnd("jkl");
             list.Print();
+            Console.WriteLine();
 
-            list.DeleteNode(3);
-            Console.WriteLine("linked list after deleting position 3:");
+            list.InsertAt(0, "000");
+            list.InsertAt(1, "111");
+            list.InsertAt(5, "555");
+            list.InsertAt(7, "777");
             list.Print();
+            Console.WriteLine();
 
-            list.DeleteNode(0);
-            Console.WriteLine("linked list after deleting position 0:");
+            list.DeleteFromBeginning();
+            list.DeleteFromEnd();
             list.Print();
+            Console.WriteLine();
+
+            list.DeleteAt(5);
+            list.DeleteAt(0);
+            list.Print();
+            Console.WriteLine();
+
+            list.DeleteAt(1);
+            list.Print();
+            Console.WriteLine();
+
+            Console.ReadKey();
         }
     }
 }
