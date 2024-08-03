@@ -4,7 +4,7 @@ namespace DSA
 {
     internal static class StackExample
     {
-        static void Main(string[] args)
+        static void Mainha(string[] args)
         {
             CustomStack<int> stack = new CustomStack<int>(5);
             stack.Push(1);
