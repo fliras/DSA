@@ -4,7 +4,7 @@ namespace DSA
 {
     internal static class LinkedListExample
     {
-        static void Main(string[] args)
+        static void Mainha(string[] args)
         {
             CustomLinkedList<string> list = new CustomLinkedList<string>();
             list.InsertAtBeginning("def");
