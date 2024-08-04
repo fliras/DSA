@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataStructures
 {
-    public class CustomStack<T>(int length)
+    public class ArrayBasedStack<T>(int length)
     {
         private readonly T[] _array = new T[length];
         private int _top = -1;

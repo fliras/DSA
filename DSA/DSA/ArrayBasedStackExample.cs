@@ -2,11 +2,11 @@
 
 namespace DSA
 {
-    internal static class StackExample
+    internal static class ArrayBasedStackExample
     {
         static void Mainha(string[] args)
         {
-            CustomStack<int> stack = new CustomStack<int>(5);
+            ArrayBasedStack<int> stack = new ArrayBasedStack<int>(5);
             stack.Push(1);
             stack.Push(2);
             stack.Push(3);
