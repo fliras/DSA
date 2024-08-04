@@ -4,11 +4,10 @@
     {
         public static void Handle(int[] array)
         {
-            int length = array.Length;
-            for (int i = 0; i < length - 1; i++)
+            for (int i = 1; i < array.Length - 1; i++)
             {
                 bool swapped = false;
-                for (int j = 0; j < length - i - 1; j++)
+                for (int j = 0; j < array.Length - i; j++)
                 {
                     if (array[j] > array[j + 1])
                     {
