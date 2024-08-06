@@ -16,7 +16,7 @@
         public void DeQueue()
         {
             if (IsEmpty()) return;
-            if (_front + 1 == _rear) _front = _rear = -1;
+            if (_front == _rear) _front = _rear = -1;
             else _front++;
         }
 
@@ -28,7 +28,7 @@
 
         public bool IsEmpty()
         {
-            return _front == -1;
+            return _rear == -1;
         }
 
         public bool IsFull()
