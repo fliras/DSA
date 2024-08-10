@@ -2,36 +2,54 @@
 {
     public class LinkedListBasedQueue<T>
     {
-        private Node<T>? _first = null;
+        private Node<T>? _front = null;
         private Node<T>? _rear = null;
 
         public bool IsEmpty()
         {
-            return _first == null;
+            return _rear == null;
         }
 
         public void Enqueue(T value)
         {
-            Node<T> newNode = new (){ Value = value };
-            if (_rear == null) _first = _rear = newNode;
+            Node<T> newNode = new Node<T> { Value = value };
+            if (IsEmpty()) _front = _rear = newNode;
+            _rear.Next = newNode;
+            _rear = _rear.Next;
+        }
+
+        public T Dequeue()
+        {
+            if (IsEmpty()) throw new ArithmeticException("Queue is empty");
+            T value = _front.Value;
+            if (_front.Next == null) _front = _rear = null;
+            else _front = _front.Next;
+            return value;
+        }
+
+        public T Peek()
+        {
+            if (IsEmpty()) throw new ArithmeticException("Queue is empty");
+            return _front.Value;
+        }
+
+        public void Print()
+        {
+            if (IsEmpty())
+            {
+                Console.WriteLine("[]");
+            }
             else
             {
-                _rear.Next = newNode;
-                _rear = newNode;
+                Console.Write("[");
+                Node<T> current = _front;
+                while (current != null)
+                {
+                    Console.Write($"{current.Value},");
+                    current = current.Next;
+                }
+                Console.WriteLine("]");
             }
-        }
-
-        public void DeQueue()
-        {
-            if (IsEmpty()) return;
-            _first = _first?.Next;
-            if (_first == null) _rear = null;
-        }
-
-        public T? Peek()
-        {
-            if (_first == null) return default;
-            return _first.Value;
         }
     }
 }

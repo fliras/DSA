@@ -7,34 +7,29 @@ namespace DSA
         static void Mainha(string[] args)
         {
             LinkedListBasedQueue<int> queue = new LinkedListBasedQueue<int>();
-            Console.WriteLine($"is empty: {queue.IsEmpty()}");
 
-            queue.Enqueue(1);
-            queue.Enqueue(2);
-            queue.Enqueue(3);
-            queue.Enqueue(4);
-            queue.Enqueue(5);
-            queue.Enqueue(6);
-            Console.WriteLine($"is empty: {queue.IsEmpty()}");
-            Console.WriteLine();
+            Console.WriteLine($"queue is empty: {queue.IsEmpty()}"); // true
+            queue.Enqueue(13);
+            Console.WriteLine($"queue is empty: {queue.IsEmpty()}"); // false
 
-            Console.WriteLine(queue.Peek());
-            queue.DeQueue();
+            queue.Enqueue(12);
+            queue.Enqueue(11);
+            queue.Enqueue(10);
+            queue.Enqueue(9);
+            queue.Print();
 
-            Console.WriteLine(queue.Peek());
-            queue.DeQueue();
+            Console.ReadKey();
 
-            Console.WriteLine(queue.Peek());
-            queue.DeQueue();
+            queue.Dequeue();
+            queue.Dequeue();
+            queue.Print();
 
-            Console.WriteLine(queue.Peek());
-            queue.DeQueue();
+            queue.Dequeue();
+            queue.Dequeue();
+            queue.Dequeue();
+            queue.Print();
+            Console.WriteLine($"queue is empty: {queue.IsEmpty()}"); // true
 
-            Console.WriteLine(queue.Peek());
-            queue.DeQueue();
-
-            queue.DeQueue();
-            Console.WriteLine($"is empty: {queue.IsEmpty()}");
             Console.ReadKey();
         }
     }
