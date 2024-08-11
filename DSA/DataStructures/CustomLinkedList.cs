@@ -7,47 +7,43 @@
         public void InsertAtBeginning(T value)
         {
             Node<T> newNode = new Node<T> { Value = value };
-            if (Head == null)
+            if (Head == null) Head = newNode;
+            else
             {
+                newNode.Next = Head;
                 Head = newNode;
-                return;
             }
-            newNode.Next = Head;
-            Head = newNode;
         }
 
-        public void InsertAtEnd(T value)
+        public void InsertAtEnding(T value)
         {
             Node<T> newNode = new Node<T> { Value = value };
-            if (Head == null)
+            if (Head == null) Head = newNode;
+            else
             {
-                Head = newNode;
-                return;
+                Node<T> current = Head;
+                while (current.Next != null)
+                    current = current.Next;
+                current.Next = newNode;
             }
-            Node<T> current = Head;
-            while (current.Next != null)
-            {
-                current = current.Next;
-            }
-            current.Next = newNode;
         }
 
-        public void InsertAt(int position, T value)
+        public void InsertAt(int index, T value)
         {
-            if (position == 0)
+            Node<T> newNode = new Node<T> { Value = value };
+            if (Head == null) throw new ArithmeticException("Out of range");
+            if (index == 0) InsertAtBeginning(value);
+            else
             {
-                InsertAtBeginning(value);
-                return;
+                Node<T> current = Head;
+                for (int i = 0; current != null && i < index - 1; i++)
+                {
+                    current = current.Next;
+                }
+                if (current == null) throw new ArithmeticException("Out of range");
+                newNode.Next = current.Next;
+                current.Next = newNode;
             }
-            if (Head == null) return;
-            Node<T> current = Head;
-            for (int i = 0; current != null && i < (position - 1); i++)
-            {
-                current = current.Next;
-            }
-            if (current == null) return;
-            Node<T> newNode = new Node<T> { Value = value, Next = current.Next };
-            current.Next = newNode;
         }
 
         public void DeleteFromBeginning()
@@ -56,37 +52,49 @@
             Head = Head.Next;
         }
 
-        public void DeleteFromEnd()
+        public void DeleteFromEnding()
         {
             if (Head == null) return;
-            if (Head.Next == null)
+            if (Head.Next == null) Head = null;
+            else
             {
-                Head = Head.Next;
-                return;
+                Node<T> current = Head;
+                while (current.Next.Next != null)
+                {
+                    current = current.Next;
+                }
+                current.Next = current.Next.Next;
             }
-            Node<T> current = Head;
-            while (current.Next.Next != null)
-            {
-                current = current.Next;
-            }
-            current.Next = null;
         }
 
-        public void DeleteAt(int position)
+        public void DeleteFrom(int index)
         {
-            if (position == 0)
+            if (Head == null) throw new ArithmeticException("Out of range");
+            if (index == 0) DeleteFromBeginning();
+            else
             {
-                DeleteFromBeginning();
-                return;
+                Node<T> current = Head;
+                for (int i = 0; current != null && i < (index - 1); i++)
+                {
+                    current = current.Next;
+                }
+                if (current == null || current.Next == null) throw new ArithmeticException("Out of range");
+                current.Next = current.Next.Next;
             }
-            if (Head == null) return;
+        }
+
+        public int Search(T value)
+        {
+            if (Head == null) throw new ArithmeticException("List is empty");
             Node<T> current = Head;
-            for (int i = 0; current != null && i < (position - 1); i++)
+            int index = 0;
+            while (current != null)
             {
+                if (current.Value.Equals(value)) return index;
                 current = current.Next;
+                index++;
             }
-            if (current == null || current.Next == null) return;
-            current.Next = current.Next.Next;
+            return -1;
         }
 
         public void Print()
@@ -99,20 +107,6 @@
                 current = current.Next;
             }
             Console.WriteLine();
-        }
-
-        public int Search(T value)
-        {
-            if (Head == null) return -1;
-            Node<T> current = Head;
-            int position = 0;
-            while (current != null && !current.Value.Equals(value))
-            {
-                current = current.Next;
-                position++;
-            }
-            if (current == null) return -1;
-            return position;
         }
     }
 

@@ -11,11 +11,15 @@ namespace DSA
             list.InsertAtBeginning("abc");
             list.Print();
             Console.WriteLine();
+            Console.ReadKey();
 
-            list.InsertAtEnd("ghi");
-            list.InsertAtEnd("jkl");
+
+            list.InsertAtEnding("ghi");
+            list.InsertAtEnding("jkl");
             list.Print();
             Console.WriteLine();
+            Console.ReadKey();
+
 
             list.InsertAt(0, "000");
             list.InsertAt(1, "111");
@@ -23,21 +27,26 @@ namespace DSA
             list.InsertAt(7, "777");
             list.Print();
             Console.WriteLine();
+            Console.ReadKey();
+
 
             list.DeleteFromBeginning();
-            list.DeleteFromEnd();
+            list.DeleteFromEnding();
             list.Print();
             Console.WriteLine();
+            Console.ReadKey();
 
-            list.DeleteAt(5);
-            list.DeleteAt(0);
+
+            list.DeleteFrom(5);
+            list.DeleteFrom(0);
             list.Print();
             Console.WriteLine();
+            Console.ReadKey();
 
-            list.DeleteAt(1);
+
+            list.DeleteFrom(1);
             list.Print();
             Console.WriteLine();
-
             Console.ReadKey();
         }
     }
