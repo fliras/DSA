@@ -14,8 +14,11 @@
         {
             Node<T> newNode = new Node<T> { Value = value };
             if (IsEmpty()) _front = _rear = newNode;
-            _rear.Next = newNode;
-            _rear = _rear.Next;
+            else
+            {
+                _rear.Next = newNode;
+                _rear = _rear.Next;
+            }
         }
 
         public T Dequeue()
