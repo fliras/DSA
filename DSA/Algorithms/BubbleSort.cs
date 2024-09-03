@@ -4,7 +4,7 @@
     {
         public static void Handle(int[] array)
         {
-            for (int i = 1; i < array.Length - 1; i++)
+            for (int i = 1; i < array.Length; i++)
             {
                 bool swapped = false;
                 for (int j = 0; j < array.Length - i; j++)
