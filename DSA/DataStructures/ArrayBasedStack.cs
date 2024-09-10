@@ -13,7 +13,7 @@ namespace DataStructures
 
         public bool IsEmpty()
         {
-            return _top == 0;
+            return _top == -1;
         }
 
         public bool IsFull()
